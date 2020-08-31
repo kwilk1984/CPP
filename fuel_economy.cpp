@@ -170,7 +170,8 @@ void QuitProgram()
     if(answer == 'Y' || answer == 'y')
     {
         cout << "Closing application . . ." << endl;
-		system("pause");		
+	cout << "Press any key to close." << endl;
+	cin.get();		
     }
     else if(answer == 'N' || answer == 'n')
     {
