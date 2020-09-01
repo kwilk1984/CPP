@@ -1,7 +1,7 @@
 //==============================================================
 //Fuel Economy Program
 //Kevin Wilkins
-//July 10, 2019
+//July 10, 2012
 //==============================================================
 
 /*
@@ -89,7 +89,8 @@ int main()
     	 		    cout << "Your fuel economy is:  " << kilometers / liters 
     	 		    	 << " km/L\n\n" << endl;
  		    	    
- 		    	    system("pause");
+ 		    	    cout << "Press 'ENTER' to continue\n";
+					cin.get();
  		    	    cout << endl << endl;
     	         break;
   	         
@@ -116,13 +117,13 @@ int main()
     	 		    cout << "Your fuel economy is:  " << miles / gallons 
     	 		    	 << " miles/gallon\n\n" << endl;
  		    	    
- 		    	    system("pause");
+ 		    	    cout << "Press 'ENTER' to continue\n";
+					cin.get();
  		    	    cout << endl << endl;
 			 	 break;
 	 	    case 3: QuitProgram();
                  break;
-            default: cout << "Invalid choice.  Please try again!" << endl << endl 
-					 	  << endl << endl;
+            default: cout << "Invalid choice.  Please try again!" << endl << endl;
       		     break;
 		}
     }while(option != abs(3));
@@ -136,21 +137,19 @@ Program Title Sequence
 ==============================================================*/
 void TitleSeq()
 {
-    //Title Sequence--------------------------------------------
-    string ProgramName = "Fuel Economy Calculator";
-	
-    cout << "//////////////////////////////\n" 
-    	 << "*////////////////////////////*\n"
-    	 << "* ////////////////////////// *\n" 
-    	 << "*  ////////////////////////  *\n" 
-    	 << "*   " << ProgramName << "   *\n" 
-    	 << "*  ////////////////////////  *\n"
-		 << "* ////////////////////////// *\n" 
-    	 << "*////////////////////////////*\n"
-    	 << "//////////////////////////////\n"
+    //Program Title    
+    cout << "*********************************\n" 
+    	 << "*********************************\n"
+    	 << "*********************************\n"
+    	 << "**** Fuel Economy Calculator ****\n" 
+    	 << "*********************************\n"
+		 << "*********************************\n" 
+    	 << "*********************************\n"
          << "A program by Kevin Wilkins" << endl << endl;
 	
-	system("pause");
+	cout << "Press 'ENTER' to continue\n";
+	cin.get();
+	cout << endl;
 }
 
 /*==============================================================
@@ -170,8 +169,8 @@ void QuitProgram()
     if(answer == 'Y' || answer == 'y')
     {
         cout << "Closing application . . ." << endl;
-	cout << "Press any key to close." << endl;
-	cin.get();		
+		cout << "Press 'ENTER' to close." << endl;
+		cin.get();		
     }
     else if(answer == 'N' || answer == 'n')
     {
