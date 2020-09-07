@@ -47,8 +47,7 @@ Main function
 int main()
 {
     //Variable declaration--------------------------------------
-    string vehicle, year, make, model;
-	int option = 0;
+    int option = 0;
 	
     //Set decimal precision-------------------------------------
     cout << fixed << setprecision(3);
@@ -149,6 +148,7 @@ void unitsSI()
 {
 	//Variable declaration--------------------------------------
 	double liters, kilometers;
+	string vehicle, year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
@@ -190,6 +190,7 @@ void ImperialUnits()
 {
 	//Variable declaration--------------------------------------
 	double miles, gallons,;
+	string vehicle, year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
