@@ -7,11 +7,18 @@
 /*
 A program that computes fuel economy and outputs results in both miles per 
 gallon and kilometers per liter.  The program also grabs user data regarding
-the year, make, and model of their vehicle.
+the year, make, and model of their vehicle and stores it as a string
+variable.
 
 The program itself uses 3 functions called from the main() function:
 	1) TitleSeq: displays the title of the program
 	2) QuitProgram: Allows the user to exit the program
+
+In the switch the program will call 2 functions relating to the choice of:
+	1) SI units
+	2) Imperial units
+	
+	These units are displayed on the menu as International and American units.
 
 The program runs as a console application.
 */
@@ -30,6 +37,8 @@ Function Prototypes
 ==============================================================*/
 void TitleSeq();
 void QuitProgram();
+void unitsSI();
+void ImperialUnits();
 
 /*==============================================================
 Main function
@@ -66,64 +75,21 @@ int main()
 		//Switch------------------------------------------------
 	    switch(option)
 	    {
-		    //When the user chooses to use SI units (Metric/International units)
-			case 1: cout << endl << endl;
-				    cout << "- You are using International Units -\n\n";
-		    	 	cout << "What is your vehicle Year/Make/Model?\n";
-		    	 	cout << "Year:  ";
-		    	 	cin >> year;
-		    	 	cout << "Make:  ";
-		    	 	cin >> make;
-		    	 	cout << "Model:  ";
-		    	 	cin >> model;
-		    	 	cout << endl << endl;
-		    	 	
-		    	 	cout << "Enter your trip distance:  ";
-		    	 	cin >> kilometers;
-		    	 	cout << "Enter your fuel amount:  ";
-		    	 	cin >> liters;
-		    	 	cout << endl << endl;
-		    	 	
-		    	 	cout << "Fuel Economy Report for: " << year << " " << make 
-		    	 		 << " " << model << endl;
-    	 		    cout << "Your fuel economy is:  " << kilometers / liters 
-    	 		    	 << " km/L\n\n" << endl;
- 		    	    
- 		    	    cout << "Press 'ENTER' to continue\n";
-					cin.get();
- 		    	    cout << endl << endl;
+		    // When the user chooses to use SI units
+			case 1: void unitsSI()
     	         break;
   	         
-            //When the user chooses to use Imperial units (American/English units)
-			case 2: cout << endl << endl;
-				    cout << "- You are using American Units -\n\n";
-		    	 	cout << "What is your vehicle Year/Make/Model?\n";
-		    	 	cout << "Year:  ";
-		    	 	cin >> year;
-		    	 	cout << "Make:  ";
-		    	 	cin >> make;
-		    	 	cout << "Model:  ";
-		    	 	cin >> model;
-		    	 	cout << endl << endl;
-		    	 	
-		    	 	cout << "Enter your trip distance:  ";
-		    	 	cin >> miles;
-		    	 	cout << "Enter your fuel amount:  ";
-		    	 	cin >> gallons;
-		    	 	cout << endl << endl;
-		    	 	
-		    	 	cout << "Fuel Economy Report for: " << year << " " << make 
-		    	 		 << " " << model << endl;
-    	 		    cout << "Your fuel economy is:  " << miles / gallons 
-    	 		    	 << " miles/gallon\n\n" << endl;
- 		    	    
- 		    	    cout << "Press 'ENTER' to continue\n";
-					cin.get();
- 		    	    cout << endl << endl;
+            // When the user chooses to use Imperial units
+			case 2: void ImperialUnits()
 			 	 break;
+			
+			// When the user wants to quit the program
 	 	    case 3: QuitProgram();
                  break;
-            default: cout << "Invalid choice.  Please try again!" << endl << endl;
+            
+            // Error message
+            default: cout << "Invalid choice.  Please try again . . ." 
+						  << endl << endl;
       		     break;
 		}
     }while(option != abs(3));
@@ -176,4 +142,81 @@ void QuitProgram()
     {
         main();
     }
+}
+
+/*==============================================================
+Program Quit
+==============================================================*/
+void unitsSI()
+{
+	// Get vehicle information, trip distance, and fuel used
+	cout << endl << endl;
+	cout << "- You are using International Units -\n\n";
+	cout << "What is your vehicle Year/Make/Model?\n";
+	cout << "Year:  ";
+	cin >> year;
+	cout << "Make:  ";
+	cin >> make;
+	cout << "Model:  ";
+	cin >> model;
+	cout << endl << endl;
+	
+	cout << "Enter your trip distance:  ";
+	cin >> kilometers;
+	cout << "Enter your fuel amount:  ";
+	cin >> liters;
+	cout << endl << endl;
+	
+	// Output report to console
+	cout << "Fuel Economy Report for: " 
+		 << year 
+		 << " " 
+		 << make 
+		 << " " 
+		 << model << endl;
+    cout << "Your fuel economy is:  " << kilometers / liters 
+    	 << " km/L\n\n" << endl;
+ 	
+ 	cout << "Press 'ENTER' to continue\n";
+	cin.get();
+ 	cout << endl << endl;
+}
+
+/*==============================================================
+Program Quit
+==============================================================*/
+void ImperialUnits()
+{
+	// Get vehicle information, trip distance, and fuel used
+	cout << endl << endl;
+	cout << "- You are using American Units -\n\n";
+	cout << "What is your vehicle Year/Make/Model?\n";
+	cout << "Year:  ";
+	cin >> year;
+	cout << "Make:  ";
+	cin >> make;
+	cout << "Model:  ";
+	cin >> model;
+	cout << endl << endl;
+	
+	cout << "Enter your trip distance:  ";
+	cin >> miles;
+	cout << "Enter your fuel amount:  ";
+	cin >> gallons;
+	cout << endl << endl;
+	
+	// Output report to console
+	cout << "Fuel Economy Report for: " 
+		 << year 
+		 << " " 
+		 << make 
+		 << " " 
+		 << model << endl;
+    cout << "Your fuel economy is:  " 
+		 << miles / gallons 
+    	 << " miles/gallon\n\n" << endl;
+ 	
+ 	cout << "Press 'ENTER' to continue\n";
+	cin.get();
+ 	cout << endl << endl;
 }
