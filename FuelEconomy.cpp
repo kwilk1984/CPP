@@ -73,11 +73,11 @@ int main()
 	    switch(option)
 	    {
 		    // When the user chooses to use SI units
-			case 1: void unitsSI()
+			case 1: void unitsSI();
     	         break;
   	         
             // When the user chooses to use Imperial units
-			case 2: void ImperialUnits()
+			case 2: void ImperialUnits();
 			 	 break;
 			
 			// When the user wants to quit the program
@@ -189,7 +189,7 @@ Imperial Units
 void ImperialUnits()
 {
 	//Variable declaration--------------------------------------
-	double miles, gallons,;
+	double miles, gallons;
 	string vehicle, year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
