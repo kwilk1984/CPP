@@ -47,8 +47,6 @@ Main function
 int main()
 {
     //Variable declaration--------------------------------------
-    double miles, kilometers;
-    double gallons, liters;
     string vehicle, year, make, model;
 	int option = 0;
 	
@@ -149,6 +147,9 @@ SI Units
 ==============================================================*/
 void unitsSI()
 {
+	//Variable declaration--------------------------------------
+	double liters, kilometers;
+	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
 	cout << "- You are using International Units -\n\n";
@@ -187,6 +188,9 @@ Imperial Units
 ==============================================================*/
 void ImperialUnits()
 {
+	//Variable declaration--------------------------------------
+	double miles, gallons,;
+	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
 	cout << "- You are using American Units -\n\n";
