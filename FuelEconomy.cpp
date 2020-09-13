@@ -37,6 +37,7 @@ Function Prototypes
 ==============================================================*/
 void TitleSeq();
 void QuitProgram();
+void menu();
 void unitsSI();
 void ImperialUnits();
 
@@ -46,51 +47,15 @@ Main function
 
 int main()
 {
-    //Variable declaration--------------------------------------
-    int option = 0;
-	
     //Set decimal precision-------------------------------------
     cout << fixed << setprecision(3);
 	
 	//Program title function call-------------------------------
 	TitleSeq();
 	
-	//Loop------------------------------------------------------
-    do
-    {
-		//Menu--------------------------------------------------
-		cout << "******************\n" 
-		     << "   Main Menu\n" 
-			 << "******************" 
-			 << endl << endl;
-		cout << "1.  Use International Units\n" 
-			 << "2.  Use American Units\n" 
-			 << "3.  Exit\n\n" 
-			 << "Enter your selection:  ";
-		cin >> option;
-		
-		//Switch------------------------------------------------
-	    switch(option)
-	    {
-		    // When the user chooses to use SI units
-			case 1: void unitsSI();
-    	         break;
-  	         
-            // When the user chooses to use Imperial units
-			case 2: void ImperialUnits();
-			 	 break;
-			
-			// When the user wants to quit the program
-	 	    case 3: QuitProgram();
-                 break;
-            
-            // Error message
-            default: cout << "Invalid choice.  Please try again . . ." 
-						  << endl << endl;
-      		     break;
-		}
-    }while(option != abs(3));
-	    
+	//Menu------------------------------------------------------
+    menu();
+		    
     //Program termination
     return 0;
 }
@@ -112,7 +77,7 @@ void TitleSeq()
 	
 	cout << "Press 'ENTER' to continue\n";
 	cin.get();
-	cout << endl;
+	cout << endl << endl;
 }
 
 /*==============================================================
@@ -142,13 +107,58 @@ void QuitProgram()
 }
 
 /*==============================================================
+Menu
+==============================================================*/
+void menu()
+{
+	//Variable declaration--------------------------------------
+    int option = 0;
+	
+	//Loop--------------------------------------------------------
+	do
+	{
+		//Menu--------------------------------------------------
+		cout << "******************\n" 
+		     << "   Main Menu\n" 
+			 << "******************" 
+			 << endl << endl;
+		cout << "1.  Use International Units\n" 
+			 << "2.  Use American Units\n" 
+			 << "3.  Exit\n\n" 
+			 << "Enter your selection:  ";
+		cin >> option;
+	
+		//Switch------------------------------------------------
+		switch(option)
+		{
+		    // When the user chooses to use SI units
+			case 1: unitsSI();
+				break;
+            
+   		     // When the user chooses to use Imperial units
+			case 2: ImperialUnits();
+				break;
+	
+			// When the user wants to quit the program
+	 	   case 3: QuitProgram();
+	  		  	break;
+            
+       		 // Error message
+     	   default: cout << "Invalid choice.  Please try again . . ." 
+						  << endl << endl;
+				break;
+		}
+	}while(option != abs(3));
+}
+
+/*==============================================================
 SI Units
 ==============================================================*/
 void unitsSI()
 {
 	//Variable declaration--------------------------------------
 	double liters, kilometers;
-	string vehicle, year, make, model;
+	string year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
@@ -177,10 +187,13 @@ void unitsSI()
 		 << model << endl;
     cout << "Your fuel economy is:  " << kilometers / liters 
     	 << " km/L\n\n" << endl;
- 	
- 	cout << "Press 'ENTER' to continue\n";
+	
+ 	//Return to the main menu
+	cin.ignore();
+	cout << "Press 'ENTER' to continue\n";
 	cin.get();
  	cout << endl << endl;
+ 	menu();
 }
 
 /*==============================================================
@@ -190,7 +203,7 @@ void ImperialUnits()
 {
 	//Variable declaration--------------------------------------
 	double miles, gallons;
-	string vehicle, year, make, model;
+	string year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
 	cout << endl << endl;
@@ -221,7 +234,10 @@ void ImperialUnits()
 		 << miles / gallons 
     	 << " miles/gallon\n\n" << endl;
  	
- 	cout << "Press 'ENTER' to continue\n";
+ 	//Return to the main menu
+	cin.ignore();
+	cout << "Press 'ENTER' to continue\n";
 	cin.get();
  	cout << endl << endl;
+ 	menu();
 }
