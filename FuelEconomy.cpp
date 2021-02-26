@@ -1,6 +1,6 @@
 /*==============================================================
 Program:  Fuel Economy
-Version:  0.1.0
+Version:  0.1.7
 Version Date:  02/13/2021
 Author:  Kevin Wilkins
 Date:  07/10/2012
@@ -62,6 +62,8 @@ int main()
     menu();
 		    
     /* End the program */
+	cout << "Closing application . . ." << endl;
+	cin.get();
     return 0;
 }
 
@@ -80,8 +82,6 @@ void TitleSeq()
     	 << "*********************************\n"
          << endl << endl;
 	
-	cout << "Press 'ENTER' to continue\n";
-	cin.get();
 	cout << endl << endl;
 }
 
@@ -95,19 +95,19 @@ void QuitProgram()
     
     //Asks user if they would like to quit the program
     cout << "Please enter Y (yes) or N (no)\n"
-         << "Would you like to quit? ";
+         << "Would you like to quit?  ";
     cin >> answer;
     
-    //If statements take user input and then output accordingly
-    if(answer == 'Y' || answer == 'y')
-    {
-        cout << "Closing application . . ." << endl;
-		cout << "Press 'ENTER' to close." << endl;
-		cin.get();		
-    }
+    /* If the user confirms that they are ready to exit then
+	the program will proceed to closing by returning to main()
+	and terminating */
+    if(answer == 'Y' || answer == 'y') return;
+
+	/* If user chooses they do not want to exit then they will
+	be sent back to the main menu */
     else if(answer == 'N' || answer == 'n')
     {
-        main();
+        menu();
     }
 }
 
@@ -119,7 +119,7 @@ void menu()
 	//Variable declaration--------------------------------------
     int option = 0;
 	
-	//Loop--------------------------------------------------------
+	//Loop------------------------------------------------------
 	do
 	{
 		//Menu--------------------------------------------------
@@ -169,35 +169,32 @@ void unitsSI()
 	cout << endl << endl;
 	cout << "- You are using International Units -\n\n";
 	cout << "What is your vehicle Year/Make/Model?\n";
-	cout << "Year:  ";
+	cout << ">>  Year:  ";
 	cin >> year;
-	cout << "Make:  ";
+	cout << ">>  Make:  ";
 	cin >> make;
-	cout << "Model:  ";
+	cout << ">> Model:  ";
 	cin >> model;
 	cout << endl << endl;
 	
-	cout << "Enter your trip distance:  ";
+	cout << ">> Trip:  ";
 	cin >> kilometers;
-	cout << "Enter your fuel amount:  ";
+	cout << ">> Fuel:  ";
 	cin >> liters;
 	cout << endl << endl;
 	
 	// Output report to console
-	cout << "Fuel Economy Report for: " 
-		 << year 
-		 << " " 
-		 << make 
-		 << " " 
-		 << model << endl;
-    cout << "Your fuel economy is:  " << kilometers / liters 
+	cout << "              :: Fuel Economy Report :: \n"
+		 << "        Vehicle:  " << year << " " << make << " " << model << endl;
+    cout << "Fuel Efficiency:  " << kilometers / liters 
     	 << " km/L\n\n" << endl;
 	
- 	//Return to the main menu
+ 	/* Wait for input from the user and then clear the console and
+	 return to the main menu */
 	cin.ignore();
 	cout << "Press 'ENTER' to continue\n";
 	cin.get();
- 	cout << endl << endl;
+ 	system("clear");
  	menu();
 }
 
@@ -214,35 +211,31 @@ void ImperialUnits()
 	cout << endl << endl;
 	cout << "- You are using American Units -\n\n";
 	cout << "What is your vehicle Year/Make/Model?\n";
-	cout << "Year:  ";
+	cout << ">>  Year:  ";
 	cin >> year;
-	cout << "Make:  ";
+	cout << ">>  Make:  ";
 	cin >> make;
-	cout << "Model:  ";
+	cout << ">> Model:  ";
 	cin >> model;
 	cout << endl << endl;
 	
-	cout << "Enter your trip distance:  ";
+	cout << ">> Trip:  ";
 	cin >> miles;
-	cout << "Enter your fuel amount:  ";
+	cout << ">> Fuel:  ";
 	cin >> gallons;
 	cout << endl << endl;
 	
 	// Output report to console
-	cout << "Fuel Economy Report for: " 
-		 << year 
-		 << " " 
-		 << make 
-		 << " " 
-		 << model << endl;
-    cout << "Your fuel economy is:  " 
-		 << miles / gallons 
-    	 << " miles/gallon\n\n" << endl;
+	cout << "              :: Fuel Economy Report :: \n"
+		 << "        Vehicle:  " << year << " " << make << " " << model << endl;
+    cout << "Fuel Efficiency:  " << miles / gallons 
+    	 << " MPG\n\n" << endl;
  	
- 	//Return to the main menu
+ 	/* Wait for input from the user and then clear the console and
+	 return to the main menu */
 	cin.ignore();
 	cout << "Press 'ENTER' to continue\n";
 	cin.get();
- 	cout << endl << endl;
+ 	system("clear");
  	menu();
 }
