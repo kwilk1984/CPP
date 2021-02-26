@@ -1,10 +1,11 @@
-//==============================================================
-//Fuel Economy Program
-//Kevin Wilkins
-//July 10, 2012
-//==============================================================
-
-/*
+/*==============================================================
+Program:  Fuel Economy
+Version:  0.1.0
+Version Date:  02/13/2021
+Author:  Kevin Wilkins
+Date:  07/10/2012
+Contributor(s):  
+Parameters:
 A program that computes fuel economy and outputs results in both miles per 
 gallon and kilometers per liter.  The program also grabs user data regarding
 the year, make, and model of their vehicle and stores it as a string
@@ -21,7 +22,7 @@ In the switch the program will call 2 functions relating to the choice of:
 	These units are displayed on the menu as International and American units.
 
 The program runs as a console application.
-*/
+==============================================================*/
 
 /*==============================================================
 Preprocessor Directives
@@ -47,16 +48,20 @@ Main function
 
 int main()
 {
-    //Set decimal precision-------------------------------------
+    /* Set decimal precision to 3
+	Doing this results in 3 decimal points and adds more
+	accuracy */
     cout << fixed << setprecision(3);
 	
-	//Program title function call-------------------------------
+	/*Call the title sequence function which will run the main
+	title of the program */
 	TitleSeq();
 	
-	//Menu------------------------------------------------------
+	/* After calling the main title the menu is then called up
+	so the end user can make their selection of measurement */
     menu();
 		    
-    //Program termination
+    /* End the program */
     return 0;
 }
 
@@ -73,7 +78,7 @@ void TitleSeq()
     	 << "*********************************\n"
 		 << "*********************************\n" 
     	 << "*********************************\n"
-         << "A program by Kevin Wilkins" << endl << endl;
+         << endl << endl;
 	
 	cout << "Press 'ENTER' to continue\n";
 	cin.get();
