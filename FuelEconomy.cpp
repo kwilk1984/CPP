@@ -122,13 +122,14 @@ Menu
 ==============================================================*/
 void menu()
 {
-	//Variable declaration--------------------------------------
+	/* We need the option variable to receive input from the user
+	with what measurements they want to use */
     int option = 0;
 	
-	//Loop------------------------------------------------------
+	//Loop
 	do
 	{
-		//Menu--------------------------------------------------
+		//Menu Options
 		cout << "******************\n" 
 		     << "   Main Menu\n" 
 			 << "******************" 
@@ -139,7 +140,7 @@ void menu()
 			 << "Enter your selection:  ";
 		cin >> option;
 	
-		//Switch------------------------------------------------
+		//Switch
 		switch(option)
 		{
 		    // When the user chooses to use SI units
@@ -170,8 +171,9 @@ SI Units
 ==============================================================*/
 void unitsSI()
 {
-	//Variable declaration--------------------------------------
-	double liters, kilometers;
+	/* International System units */
+	double liters = 0;
+	double kilometers = 0;
 	string year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
@@ -212,8 +214,9 @@ Imperial Units
 ==============================================================*/
 void ImperialUnits()
 {
-	//Variable declaration--------------------------------------
-	double miles, gallons;
+	/* Imperial - or American - units */
+	double miles = 0;
+	double gallons = 0;
 	string year, make, model;
 	
 	// Get vehicle information, trip distance, and fuel used
