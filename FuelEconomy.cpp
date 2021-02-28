@@ -1,6 +1,6 @@
 /*==============================================================
 Program:  Fuel Economy
-Version:  0.1.7
+Version:  0.2.1
 Version Date:  02/13/2021
 Author:  Kevin Wilkins
 Date:  07/10/2012
@@ -18,8 +18,8 @@ The program itself uses 3 functions called from the main() function:
 In the switch the program will call 2 functions relating to the choice of:
 	1) SI units
 	2) Imperial units
-	
-	These units are displayed on the menu as International and American units.
+
+These units are displayed on the menu as International and American units.
 
 The program runs as a console application.
 ==============================================================*/
@@ -48,7 +48,10 @@ Main function
 
 int main()
 {
-    /* Set decimal precision to 3
+    /* Clear the terminal prior to main title sequence */
+	system("clear");
+	
+	/* Set decimal precision to 3
 	Doing this results in 3 decimal points and adds more
 	accuracy */
     cout << fixed << setprecision(3);
@@ -82,7 +85,9 @@ void TitleSeq()
     	 << "*********************************\n"
          << endl << endl;
 	
-	cout << endl << endl;
+	cout << "Press 'ENTER' to begin\n";
+	cin.get();
+ 	system("clear");
 }
 
 /*==============================================================
@@ -94,20 +99,21 @@ void QuitProgram()
     char answer;
     
     //Asks user if they would like to quit the program
-    cout << "Please enter Y (yes) or N (no)\n"
+    cout << "Please enter y (yes) or n (no)\n"
          << "Would you like to quit?  ";
     cin >> answer;
     
     /* If the user confirms that they are ready to exit then
 	the program will proceed to closing by returning to main()
 	and terminating */
-    if(answer == 'Y' || answer == 'y') return;
+    if(answer == 'y') return;
 
 	/* If user chooses they do not want to exit then they will
 	be sent back to the main menu */
-    else if(answer == 'N' || answer == 'n')
+    else if(answer == 'n')
     {
-        menu();
+        system("clear");
+		menu();
     }
 }
 
@@ -137,11 +143,13 @@ void menu()
 		switch(option)
 		{
 		    // When the user chooses to use SI units
-			case 1: unitsSI();
+			case 1: system("clear");
+				unitsSI();
 				break;
             
    		     // When the user chooses to use Imperial units
-			case 2: ImperialUnits();
+			case 2: system("clear");
+				ImperialUnits();
 				break;
 	
 			// When the user wants to quit the program
@@ -149,8 +157,9 @@ void menu()
 	  		  	break;
             
        		 // Error message
-     	   default: cout << "Invalid choice.  Please try again . . ." 
-						  << endl << endl;
+     	   default: system("clear");
+				cout << "Invalid choice.  Please try again . . ." 
+					 << endl << endl;
 				break;
 		}
 	}while(option != abs(3));
